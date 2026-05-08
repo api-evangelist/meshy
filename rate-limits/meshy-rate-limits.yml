@@ -5,7 +5,7 @@ provider: Meshy
 providerId: meshy
 created: '2026-05-08'
 modified: '2026-05-08'
-reconciled: false
+reconciled: true
 tags:
 - AI
 - 3D
@@ -15,21 +15,51 @@ tags:
 - Rate Limiting
 - Quotas
 - Throttling
-description: Placeholder rate-limit artifact for Meshy. Replace with real limits once researched.
-notes: Initial scaffold — limits have not yet been reconciled.
+description: >-
+  Meshy caps API throughput primarily through plan-tier concurrent task counts (Free 1, Pro
+  10, Studio 20, Enterprise 50+) and monthly credit allocations. Queue priority and
+  generation speed are also tier-gated. HTTP-level RPS limits are not separately documented.
+notes: Concurrent task count and monthly credits are the documented scaling levers.
 sources:
-- https://www.meshy.ai/
+- https://www.meshy.ai/pricing
+- https://docs.meshy.ai/
 responseCodes:
   throttled: 429
 limits:
-- name: Default
+- name: Concurrent Tasks (Free)
   scope: account
-  metric: varies
-  limit: see provider documentation
-  notes: Pending reconciliation.
+  metric: concurrent_tasks
+  limit: 1
+- name: Concurrent Tasks (Pro)
+  scope: account
+  metric: concurrent_tasks
+  limit: 10
+- name: Concurrent Tasks (Studio)
+  scope: account
+  metric: concurrent_tasks
+  limit: 20
+- name: Concurrent Tasks (Enterprise)
+  scope: account
+  metric: concurrent_tasks
+  limit: 50
+  notes: 50+ negotiated at contract.
+- name: Monthly Credits (Free)
+  scope: account
+  metric: credits
+  limit: 100
+- name: Monthly Credits (Pro)
+  scope: account
+  metric: credits
+  limit: 1000
+- name: Monthly Credits (Studio)
+  scope: account
+  metric: credits
+  limit: 4000
 policies:
 - name: Backoff Strategy
   description: Clients should implement exponential backoff with jitter and honor any Retry-After header.
+- name: Queue Priority
+  description: Plan tier determines queue priority and generation speed (60% faster for Pro+).
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

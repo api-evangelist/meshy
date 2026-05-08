@@ -5,7 +5,7 @@ provider: Meshy
 providerId: meshy
 created: '2026-05-08'
 modified: '2026-05-08'
-reconciled: false
+reconciled: true
 tags:
 - AI
 - 3D
@@ -15,10 +15,15 @@ tags:
 - FinOps
 - Cost Management
 - FOCUS
-description: FOCUS-aligned FinOps placeholder for Meshy. Pipeline will replace with real billing details.
-notes: Initial scaffold — billing model has not yet been reconciled.
+description: >-
+  FOCUS-aligned FinOps view of Meshy. Meshy bundles monthly credits in subscription tiers
+  (Free 100, Pro 1,000, Studio 4,000, Enterprise custom). Per-task credit cost is returned
+  as consumed_credits in the API response. Free retries (4 Pro / 8 Studio / unlimited
+  Enterprise) reduce the effective per-asset cost.
+notes: Right-size the plan tier vs expected monthly credit burn; plan upgrade is the dominant cost lever.
 sources:
-- https://www.meshy.ai/
+- https://www.meshy.ai/pricing
+- https://docs.meshy.ai/
 - https://focus.finops.org/focus-specification/v1-3/
 alignedWith:
   framework: FinOps Foundation Framework
@@ -29,15 +34,15 @@ alignedWith:
 publisherName: Meshy
 serviceCategory: AI
 billingModel:
-  pricingCategory: To Be Reconciled
+  pricingCategory: Subscription with Credit Allocation + Per-Task Usage
   billingFrequency: Monthly
   billingCurrency: USD
   chargeCategories:
-  - Usage
   - Purchase
+  - Usage
   - Adjustment
 focusColumns:
-  ServiceName: Meshy
+  ServiceName: Meshy 3D API
   ServiceCategory: AI
   ProviderName: Meshy
   PublisherName: Meshy
@@ -45,22 +50,48 @@ focusColumns:
   BillingCurrency: USD
   ChargeCategory: Usage
 meters:
-- name: api_usage
-  description: Catch-all meter pending reconciliation.
-  unit: varies
+- name: text_to_3d_credits
+  description: Credits consumed by Text-to-3D tasks (preview + refine).
+  unit: credit
   aggregation: sum
   dimensions:
   - account
-  - resource
+  - phase
+- name: image_to_3d_credits
+  description: Credits consumed by Image-to-3D and Multi Image-to-3D tasks.
+  unit: credit
+  aggregation: sum
+  dimensions:
+  - account
+- name: animation_credits
+  description: Credits consumed by Rigging / Animation / Retexture / Remesh tasks.
+  unit: credit
+  aggregation: sum
+  dimensions:
+  - account
+  - operation
+- name: print_analysis_credits
+  description: Credits consumed by Multi-Color Print, Analyze Printability, and Repair Printability tasks.
+  unit: credit
+  aggregation: sum
+  dimensions:
+  - account
+- name: monthly_credits_allocated
+  description: Plan-tier monthly credit allocation.
+  unit: credit
+  aggregation: max
+  dimensions:
+  - account
+  - plan
 principles:
 - name: Visibility
-  description: Pull provider invoices or usage exports until a self-serve usage feed is documented.
+  description: Read consumed_credits from each API response and aggregate per task type.
 - name: Allocation
-  description: Tag invoice line items to consuming business units in your FinOps store.
+  description: Tag tasks to consuming game/app/team.
 - name: Optimization
-  description: Levers depend on the provider's billing model; review at renewal once reconciled.
+  description: Use Pro/Studio retries before paying for re-generation; right-size plan to match monthly credit burn.
 - name: Accountability
-  description: Assign a contract owner to review billing against negotiated terms.
+  description: Assign credit-budget owner per consuming workspace.
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

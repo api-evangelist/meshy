@@ -5,7 +5,7 @@ provider: Meshy
 providerId: meshy
 created: '2026-05-08'
 modified: '2026-05-08'
-reconciled: false
+reconciled: true
 tags:
 - AI
 - 3D
@@ -13,29 +13,99 @@ tags:
 - Texturing
 - Animation
 - Plans
-description: Placeholder plans/pricing artifact for Meshy. Replace with real published pricing once
-  the pipeline researches the provider's plans page.
-notes: Initial scaffold — plans/pricing have not yet been reconciled.
+description: >-
+  Meshy offers four tiers (Free / Pro / Studio / Enterprise) using monthly credit
+  allocations and concurrent task caps. Per-task credit consumption is returned in the API
+  response (consumed_credits). Enterprise unlocks full API access, forever asset retention,
+  and 50+ concurrent tasks.
+notes: Reconciled from the public Meshy pricing page (May 2026).
 sources:
-- https://www.meshy.ai/
+- https://www.meshy.ai/pricing
 plans:
-- id: meshy-default
-  name: To Be Reconciled
-  type: enterprise
-  description: Initial scaffold; replace with provider plan tiers once pricing is reconciled.
+- id: meshy-free
+  name: Free
+  type: free
+  description: 100 monthly credits, 1 concurrent task, low queue priority, non-commercial license (CC BY 4.0).
   entries:
-  - label: API Access
-    name: api_access
+  - label: Plan Fee
+    name: plan_fee
     type: flat
-    metric: varies
-    limit: -1
-    timeFrame: usage
+    metric: month
+    limit: 1
+    timeFrame: month
     geo: global
     unit: 1
-    price: see https://www.meshy.ai/
+    price: 0 USD/month
+    userMultiplied: false
+  - label: Monthly Credits
+    name: monthly_credits
+    type: per_unit
+    metric: credit
+    limit: 100
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: included
     userMultiplied: false
   elements:
-  - name: Pending Reconciliation
+  - name: 1 concurrent task
+  - name: Low queue priority
+  - name: Non-commercial CC BY 4.0
+- id: meshy-pro
+  name: Pro
+  type: subscription
+  description: 1,000 credits/month (~100 assets), 10 concurrent tasks, 60% faster generation, 4 free retries/task, private license.
+  entries:
+  - label: Monthly Credits
+    name: monthly_credits
+    type: per_unit
+    metric: credit
+    limit: 1000
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: see meshy.ai/pricing
+    userMultiplied: false
+  elements:
+  - name: 10 concurrent tasks
+  - name: High queue priority
+  - name: 60% faster generation
+  - name: 4 free retries per task
+  - name: Private license
+- id: meshy-studio
+  name: Studio
+  type: subscription
+  description: 4,000 credits/month (~400 assets), 20 concurrent tasks, team management, centralized billing.
+  entries:
+  - label: Monthly Credits
+    name: monthly_credits
+    type: per_unit
+    metric: credit
+    limit: 4000
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: see meshy.ai/pricing
+    userMultiplied: false
+  elements:
+  - name: 20 concurrent tasks
+  - name: 60% faster generation
+  - name: 8 free retries per task
+- id: meshy-enterprise
+  name: Enterprise
+  type: enterprise
+  description: 50+ concurrent tasks, unlimited free retries, full API access, forever API asset retention.
+  entries:
+  - label: Enterprise Contract
+    name: enterprise
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: annual
+    geo: global
+    unit: 1
+    price: contact sales
+    userMultiplied: false
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

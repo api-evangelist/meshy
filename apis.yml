@@ -3,7 +3,10 @@ url: https://raw.githubusercontent.com/api-evangelist/meshy/refs/heads/main/apis
 name: Meshy
 x-type: company
 description: >-
-  Meshy is an AI 3D model generation platform offering text-to-3D, image-to-3D, AI texturing, and rigging APIs for game and creative production.
+  Meshy is an AI 3D model generation platform offering Text-to-3D, Image-to-3D, Multi
+  Image-to-3D, Remesh, Rigging, Animation, Retexture, Text-to-Image, Image-to-Image,
+  Multi-Color Print, Analyze Printability, and Repair Printability APIs. The Meshy REST API
+  is at https://api.meshy.ai with bearer token authentication.
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
   - AI
@@ -11,13 +14,43 @@ tags:
   - Generation
   - Texturing
   - Animation
+  - Rigging
+  - Printing
 created: '2026-05-08'
 modified: '2026-05-08'
 specificationVersion: '0.19'
-apis: []
+apis:
+  - aid: meshy:platform
+    name: Meshy API
+    description: >-
+      REST API at https://api.meshy.ai for Text-to-3D (v2 with preview + refine workflow),
+      Image-to-3D, Multi Image-to-3D, Remesh, Rigging, Animation, Retexture,
+      Text-to-Image, Image-to-Image, Multi-Color Print, Analyze Printability, and Repair
+      Printability. Auth via bearer token; consumed_credits returned per task. Documented at
+      https://docs.meshy.ai/.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://docs.meshy.ai/
+    baseURL: https://api.meshy.ai/openapi/v2
+    tags:
+      - 3D Generation
+      - Text-to-3D
+      - Image-to-3D
+      - Texturing
+      - Animation
+      - Rigging
+      - 3D Printing
+    properties:
+      - type: Documentation
+        url: https://docs.meshy.ai/
+      - type: SignUp
+        url: https://www.meshy.ai/settings/api
+      - type: Pricing
+        url: https://www.meshy.ai/pricing
 common:
   - type: Website
     url: https://www.meshy.ai/
+  - type: Documentation
+    url: https://docs.meshy.ai/
   - type: Plans
     url: plans/meshy-plans-pricing.yml
   - type: RateLimits
