@@ -57,6 +57,10 @@ common:
     url: rate-limits/meshy-rate-limits.yml
   - type: FinOps
     url: finops/meshy-finops.yml
+  - type: Integrations
+    url: https://www.meshy.ai/integrations
+integrations:
+  - name: Roblox Bridge
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
