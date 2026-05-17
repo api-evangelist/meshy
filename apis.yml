@@ -1,7 +1,7 @@
 aid: meshy
 url: https://raw.githubusercontent.com/api-evangelist/meshy/refs/heads/main/apis.yml
 name: Meshy
-x-type: company
+kind: company
 description: >-
   Meshy is an AI 3D model generation platform offering Text-to-3D, Image-to-3D, Multi
   Image-to-3D, Remesh, Rigging, Animation, Retexture, Text-to-Image, Image-to-Image,
