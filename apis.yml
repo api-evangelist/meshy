@@ -47,6 +47,10 @@ apis:
       - type: Pricing
         url: https://www.meshy.ai/pricing
 common:
+  - type: GitHubOrganization
+    url: https://github.com/meshy-dev
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/meshyai
   - type: Website
     url: https://www.meshy.ai/
   - type: Documentation
