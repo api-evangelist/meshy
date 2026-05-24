@@ -63,6 +63,8 @@ common:
     url: finops/meshy-finops.yml
   - type: Integrations
     url: https://www.meshy.ai/integrations
+  - type: LLMsTxt
+    url: https://docs.meshy.ai/llms.txt
 integrations:
   - name: Roblox Bridge
 maintainers:
