@@ -1,0 +1,236 @@
+openapi: 3.1.0
+info:
+  title: Meshy API
+  description: |
+    Meshy is an AI 3D model generation platform. The REST API at https://api.meshy.ai
+    provides Text-to-3D (v2 preview + refine workflow), Image-to-3D, and related
+    asset generation operations. Authentication is via bearer token.
+  version: "2.0"
+  contact:
+    name: Meshy
+    url: https://docs.meshy.ai/
+servers:
+  - url: https://api.meshy.ai
+    description: Production API
+security:
+  - bearerAuth: []
+tags:
+  - name: Text to 3D
+  - name: Image to 3D
+paths:
+  /openapi/v2/text-to-3d:
+    post:
+      tags: [Text to 3D]
+      summary: Create a Text-to-3D task (preview or refine mode)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TextTo3DRequest'
+      responses:
+        '202':
+          description: Task accepted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaskCreated'
+    get:
+      tags: [Text to 3D]
+      summary: List Text-to-3D tasks (paginated)
+      parameters:
+        - in: query
+          name: page_num
+          schema: { type: integer, default: 1 }
+        - in: query
+          name: page_size
+          schema: { type: integer, default: 10 }
+      responses:
+        '200':
+          description: List of tasks
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Task'
+  /openapi/v2/text-to-3d/{id}:
+    parameters:
+      - in: path
+        name: id
+        required: true
+        schema: { type: string }
+    get:
+      tags: [Text to 3D]
+      summary: Retrieve a Text-to-3D task
+      responses:
+        '200':
+          description: Task details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+    delete:
+      tags: [Text to 3D]
+      summary: Delete a Text-to-3D task
+      responses:
+        '200':
+          description: Deleted
+  /openapi/v2/text-to-3d/{id}/stream:
+    parameters:
+      - in: path
+        name: id
+        required: true
+        schema: { type: string }
+    get:
+      tags: [Text to 3D]
+      summary: Stream real-time task updates via SSE
+      responses:
+        '200':
+          description: Server-Sent Events stream
+          content:
+            text/event-stream: {}
+  /openapi/v1/image-to-3d:
+    post:
+      tags: [Image to 3D]
+      summary: Create an Image-to-3D task
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ImageTo3DRequest'
+      responses:
+        '202':
+          description: Task accepted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaskCreated'
+    get:
+      tags: [Image to 3D]
+      summary: List Image-to-3D tasks
+      responses:
+        '200':
+          description: List of tasks
+  /openapi/v1/image-to-3d/{id}:
+    parameters:
+      - in: path
+        name: id
+        required: true
+        schema: { type: string }
+    get:
+      tags: [Image to 3D]
+      summary: Retrieve an Image-to-3D task
+      responses:
+        '200':
+          description: Task details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+    delete:
+      tags: [Image to 3D]
+      summary: Delete an Image-to-3D task
+      responses:
+        '200':
+          description: Deleted
+  /openapi/v1/image-to-3d/{id}/stream:
+    parameters:
+      - in: path
+        name: id
+        required: true
+        schema: { type: string }
+    get:
+      tags: [Image to 3D]
+      summary: Stream real-time task updates via SSE
+      responses:
+        '200':
+          description: Server-Sent Events stream
+          content:
+            text/event-stream: {}
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: API key supplied as `Authorization: Bearer YOUR_API_KEY`
+  schemas:
+    TextTo3DRequest:
+      type: object
+      required: [mode]
+      properties:
+        mode:
+          type: string
+          enum: [preview, refine]
+        prompt:
+          type: string
+          maxLength: 600
+        preview_task_id:
+          type: string
+          description: Required when mode is "refine"
+        model_type:
+          type: string
+          enum: [standard, lowpoly]
+        ai_model:
+          type: string
+          enum: [meshy-5, meshy-6, latest]
+        pose_mode:
+          type: string
+          enum: [a-pose, t-pose, ""]
+        enable_pbr:
+          type: boolean
+        texture_prompt:
+          type: string
+          maxLength: 600
+        target_formats:
+          type: array
+          items:
+            type: string
+            enum: [glb, obj, fbx, stl, usdz, 3mf]
+    ImageTo3DRequest:
+      type: object
+      required: [image_url]
+      properties:
+        image_url:
+          type: string
+          description: Publicly accessible URL or base64 data URI (jpg/jpeg/png)
+        ai_model:
+          type: string
+          enum: [meshy-5, meshy-6, latest]
+        enable_pbr:
+          type: boolean
+        texture_resolution:
+          type: string
+          enum: ["1024", "2048", "4096"]
+        target_formats:
+          type: array
+          items:
+            type: string
+            enum: [glb, fbx, obj, usdz, stl, 3mf]
+        pose_mode:
+          type: string
+          enum: [a-pose, t-pose, ""]
+    TaskCreated:
+      type: object
+      properties:
+        result:
+          type: string
+          description: Task ID
+    Task:
+      type: object
+      properties:
+        id: { type: string }
+        status:
+          type: string
+          enum: [PENDING, IN_PROGRESS, SUCCEEDED, FAILED, CANCELED, EXPIRED]
+        progress: { type: integer }
+        created_at: { type: integer }
+        finished_at: { type: integer }
+        model_urls:
+          type: object
+          additionalProperties:
+            type: string
+        thumbnail_url: { type: string }
+        prompt: { type: string }
+        consumed_credits: { type: integer }
