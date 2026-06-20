@@ -7,7 +7,7 @@ description: >-
   Image-to-3D, Remesh, Rigging, Animation, Retexture, Text-to-Image, Image-to-Image,
   Multi-Color Print, Analyze Printability, and Repair Printability APIs. The Meshy REST API
   is at https://api.meshy.ai with bearer token authentication.
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
   - AI
   - 3D
@@ -28,7 +28,7 @@ apis:
       Text-to-Image, Image-to-Image, Multi-Color Print, Analyze Printability, and Repair
       Printability. Auth via bearer token; consumed_credits returned per task. Documented at
       https://docs.meshy.ai/.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://docs.meshy.ai/
     baseURL: https://api.meshy.ai/openapi/v2
     tags:
