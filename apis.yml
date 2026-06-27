@@ -42,7 +42,7 @@ apis:
     properties:
       - type: Documentation
         url: https://docs.meshy.ai/
-      - type: SignUp
+      - type: Signup
         url: https://www.meshy.ai/settings/api
       - type: Pricing
         url: https://www.meshy.ai/pricing
@@ -63,7 +63,7 @@ common:
     url: finops/meshy-finops.yml
   - type: Integrations
     url: https://www.meshy.ai/integrations
-  - type: LLMsTxt
+  - type: LlmsText
     url: https://docs.meshy.ai/llms.txt
 integrations:
   - name: Roblox Bridge
