@@ -154,7 +154,7 @@ components:
     bearerAuth:
       type: http
       scheme: bearer
-      description: API key supplied as `Authorization: Bearer YOUR_API_KEY`
+      description: "API key supplied as `Authorization: Bearer YOUR_API_KEY`"
   schemas:
     TextTo3DRequest:
       type: object
