@@ -32,32 +32,51 @@ created: '2026-05-08'
 modified: '2026-05-08'
 specificationVersion: '0.19'
 apis:
-  - aid: meshy:platform
-    name: Meshy API
-    description: >-
-      REST API at https://api.meshy.ai for Text-to-3D (v2 with preview + refine workflow),
-      Image-to-3D, Multi Image-to-3D, Remesh, Rigging, Animation, Retexture,
-      Text-to-Image, Image-to-Image, Multi-Color Print, Analyze Printability, and Repair
-      Printability. Auth via bearer token; consumed_credits returned per task. Documented at
-      https://docs.meshy.ai/.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://docs.meshy.ai/
-    baseURL: https://api.meshy.ai/openapi/v2
-    tags:
-      - 3D Generation
-      - Text-to-3D
-      - Image-to-3D
-      - Texturing
-      - Animation
-      - Rigging
-      - 3D Printing
-    properties:
-      - type: Documentation
-        url: https://docs.meshy.ai/
-      - type: Signup
-        url: https://www.meshy.ai/settings/api
-      - type: Pricing
-        url: https://www.meshy.ai/pricing
+- aid: meshy:platform
+  name: Meshy API
+  description: >-
+    REST API at https://api.meshy.ai for Text-to-3D (v2 with preview + refine workflow), Image-to-3D,
+    Multi Image-to-3D, Remesh, Rigging, Animation, Retexture, Text-to-Image, Image-to-Image, Multi-Color
+    Print, Analyze Printability, and Repair Printability. Auth via bearer token; consumed_credits returned
+    per task. Documented at https://docs.meshy.ai/.
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://docs.meshy.ai/
+  baseURL: https://api.meshy.ai/openapi/v2
+  tags:
+  - 3D Generation
+  - Text-to-3D
+  - Image-to-3D
+  - Texturing
+  - Animation
+  - Rigging
+  - 3D Printing
+  properties:
+  - type: Documentation
+    url: https://docs.meshy.ai/
+  - type: Signup
+    url: https://www.meshy.ai/settings/api
+  - type: Pricing
+    url: https://www.meshy.ai/pricing
+- aid: meshy:meshy-image-to-3d-api
+  name: Meshy Image to 3D API
+  description: The Image to 3D API from Meshy — 3 operation(s) for image to 3d.
+  humanURL: https://docs.meshy.ai/
+  baseURL: https://api.meshy.ai/openapi/v2
+  tags:
+  - Image to 3D
+  properties:
+  - type: OpenAPI
+    url: openapi/meshy-image-to-3d-api-openapi.yml
+- aid: meshy:meshy-text-to-3d-api
+  name: Meshy Text to 3D API
+  description: The Text to 3D API from Meshy — 3 operation(s) for text to 3d.
+  humanURL: https://docs.meshy.ai/
+  baseURL: https://api.meshy.ai/openapi/v2
+  tags:
+  - Text to 3D
+  properties:
+  - type: OpenAPI
+    url: openapi/meshy-text-to-3d-api-openapi.yml
 common:
   - type: VulnerabilityDisclosure
     url: security/meshy-vulnerability-disclosure.yml
