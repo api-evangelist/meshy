@@ -1,0 +1,104 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Meshy Image to 3D API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Image to 3D",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Image-to-3D tasks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meshy.ai/openapi/v1/image-to-3d"
+          },
+          "docs": "List Image-to-3D tasks"
+        },
+        {
+          "info": {
+            "name": "Create an Image-to-3D task",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meshy.ai/openapi/v1/image-to-3d",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create an Image-to-3D task"
+        },
+        {
+          "info": {
+            "name": "Retrieve an Image-to-3D task",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meshy.ai/openapi/v1/image-to-3d/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve an Image-to-3D task"
+        },
+        {
+          "info": {
+            "name": "Delete an Image-to-3D task",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.meshy.ai/openapi/v1/image-to-3d/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete an Image-to-3D task"
+        },
+        {
+          "info": {
+            "name": "Stream real-time task updates via SSE",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meshy.ai/openapi/v1/image-to-3d/:id/stream",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Stream real-time task updates via SSE"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

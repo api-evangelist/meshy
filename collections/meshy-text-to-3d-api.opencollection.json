@@ -1,0 +1,116 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Meshy Text to 3D API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Text to 3D",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Text-to-3D tasks (paginated)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meshy.ai/openapi/v2/text-to-3d",
+            "params": [
+              {
+                "name": "page_num",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List Text-to-3D tasks (paginated)"
+        },
+        {
+          "info": {
+            "name": "Create a Text-to-3D task (preview or refine mode)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.meshy.ai/openapi/v2/text-to-3d",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a Text-to-3D task (preview or refine mode)"
+        },
+        {
+          "info": {
+            "name": "Retrieve a Text-to-3D task",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meshy.ai/openapi/v2/text-to-3d/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve a Text-to-3D task"
+        },
+        {
+          "info": {
+            "name": "Delete a Text-to-3D task",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.meshy.ai/openapi/v2/text-to-3d/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a Text-to-3D task"
+        },
+        {
+          "info": {
+            "name": "Stream real-time task updates via SSE",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.meshy.ai/openapi/v2/text-to-3d/:id/stream",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Stream real-time task updates via SSE"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

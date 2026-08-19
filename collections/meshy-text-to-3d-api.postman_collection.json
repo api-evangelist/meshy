@@ -1,0 +1,523 @@
+{
+  "item": [
+    {
+      "id": "a9693091-8644-4bfd-bb7d-f0f2c0cc7be3",
+      "name": "Text to 3D",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1017da72-93da-4933-a105-711ff2f1ce92",
+          "name": "Create a Text-to-3D task (preview or refine mode)",
+          "request": {
+            "name": "Create a Text-to-3D task (preview or refine mode)",
+            "description": {},
+            "url": {
+              "path": [
+                "openapi",
+                "v2",
+                "text-to-3d"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"mode\": \"<string>\",\n  \"prompt\": \"<string>\",\n  \"preview_task_id\": \"<string>\",\n  \"model_type\": \"<string>\",\n  \"ai_model\": \"<string>\",\n  \"pose_mode\": \"<string>\",\n  \"enable_pbr\": \"<boolean>\",\n  \"texture_prompt\": \"<string>\",\n  \"target_formats\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8057b004-3208-4b40-8139-fd7d95594215",
+              "name": "Task accepted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "v2",
+                    "text-to-3d"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"mode\": \"<string>\",\n  \"prompt\": \"<string>\",\n  \"preview_task_id\": \"<string>\",\n  \"model_type\": \"<string>\",\n  \"ai_model\": \"<string>\",\n  \"pose_mode\": \"<string>\",\n  \"enable_pbr\": \"<boolean>\",\n  \"texture_prompt\": \"<string>\",\n  \"target_formats\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a19297e4-55a8-469c-8c78-0915163fa70c",
+          "name": "List Text-to-3D tasks (paginated)",
+          "request": {
+            "name": "List Text-to-3D tasks (paginated)",
+            "description": {},
+            "url": {
+              "path": [
+                "openapi",
+                "v2",
+                "text-to-3d"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page_num",
+                  "value": "1"
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "10"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "42ec8ae8-fa43-49a7-947b-bc33477683d1",
+              "name": "List of tasks",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "v2",
+                    "text-to-3d"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page_num",
+                      "value": "1"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"status\": \"PENDING\",\n    \"progress\": 4393,\n    \"created_at\": 5156,\n    \"finished_at\": 3660,\n    \"model_urls\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    },\n    \"thumbnail_url\": \"string\",\n    \"prompt\": \"string\",\n    \"consumed_credits\": 7167\n  },\n  {\n    \"id\": \"string\",\n    \"status\": \"SUCCEEDED\",\n    \"progress\": 4964,\n    \"created_at\": 7714,\n    \"finished_at\": 3699,\n    \"model_urls\": {\n      \"key_0\": \"string\"\n    },\n    \"thumbnail_url\": \"string\",\n    \"prompt\": \"string\",\n    \"consumed_credits\": 8295\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "195842b9-542d-43ab-964c-6f13f2e9f6d4",
+          "name": "Retrieve a Text-to-3D task",
+          "request": {
+            "name": "Retrieve a Text-to-3D task",
+            "description": {},
+            "url": {
+              "path": [
+                "openapi",
+                "v2",
+                "text-to-3d",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "92a2ce10-0880-4e9d-883c-c94ef49f4ddc",
+              "name": "Task details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "v2",
+                    "text-to-3d",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"status\": \"SUCCEEDED\",\n  \"progress\": 4708,\n  \"created_at\": 3688,\n  \"finished_at\": 7506,\n  \"model_urls\": {\n    \"key_0\": \"string\"\n  },\n  \"thumbnail_url\": \"string\",\n  \"prompt\": \"string\",\n  \"consumed_credits\": 5042\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ed33501a-fbe4-43d2-a01e-2c294fa3d061",
+          "name": "Delete a Text-to-3D task",
+          "request": {
+            "name": "Delete a Text-to-3D task",
+            "description": {},
+            "url": {
+              "path": [
+                "openapi",
+                "v2",
+                "text-to-3d",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "46215a4b-852e-424a-bc79-947a986f8dbd",
+              "name": "Deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "v2",
+                    "text-to-3d",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b8ed906a-19de-4667-9436-abfbdc459e3c",
+          "name": "Stream real-time task updates via SSE",
+          "request": {
+            "name": "Stream real-time task updates via SSE",
+            "description": {},
+            "url": {
+              "path": [
+                "openapi",
+                "v2",
+                "text-to-3d",
+                ":id",
+                "stream"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/event-stream"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "35cd1f86-14e2-4f01-a9a2-d52e64eb7fee",
+              "name": "Server-Sent Events stream",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "openapi",
+                    "v2",
+                    "text-to-3d",
+                    ":id",
+                    "stream"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/event-stream"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/event-stream"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.meshy.ai",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "374af6b6-3bb5-4d79-93f4-290e56c307c6",
+    "name": "Meshy Text to 3D API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Meshy is an AI 3D model generation platform. The REST API at https://api.meshy.ai\nprovides Text-to-3D (v2 preview + refine workflow), Image-to-3D, and related\nasset generation operations. Authentication is via bearer token.\n\n\nContact Support:\n Name: Meshy",
+      "type": "text/plain"
+    }
+  }
+}
