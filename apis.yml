@@ -21,6 +21,14 @@ accessModel:
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/meshy.png
 tags:
+  - Artificial Intelligence
+  - 3D
+  - Generation
+  - Texturing
+  - Animation
+  - Rigging
+  - Printing
+tags_raw:
   - AI
   - 3D
   - Generation
@@ -63,6 +71,8 @@ apis:
   humanURL: https://docs.meshy.ai/
   baseURL: https://api.meshy.ai/openapi/v2
   tags:
+  - Image-to-3D
+  tags_raw:
   - Image to 3D
   properties:
   - type: OpenAPI
@@ -73,6 +83,8 @@ apis:
   humanURL: https://docs.meshy.ai/
   baseURL: https://api.meshy.ai/openapi/v2
   tags:
+  - Text-to-3D
+  tags_raw:
   - Text to 3D
   properties:
   - type: OpenAPI
