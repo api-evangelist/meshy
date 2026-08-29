@@ -7,6 +7,18 @@ description: >-
   Image-to-3D, Remesh, Rigging, Animation, Retexture, Text-to-Image, Image-to-Image,
   Multi-Color Print, Analyze Printability, and Repair Printability APIs. The Meshy REST API
   is at https://api.meshy.ai with bearer token authentication.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: unknown
