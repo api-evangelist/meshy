@@ -83,7 +83,7 @@ apis:
   humanURL: https://docs.meshy.ai/
   baseURL: https://api.meshy.ai/openapi/v2
   tags:
-  - Image to 3D
+  - Image-to-3D
   tags_raw:
   - Image to 3D
   properties:
@@ -95,7 +95,7 @@ apis:
   humanURL: https://docs.meshy.ai/
   baseURL: https://api.meshy.ai/openapi/v2
   tags:
-  - Text to 3D
+  - Text-to-3D
   tags_raw:
   - Text to 3D
   properties:
