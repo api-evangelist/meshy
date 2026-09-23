@@ -5,9 +5,7 @@ info:
 
     provides Text-to-3D (v2 preview + refine workflow), Image-to-3D, and related
 
-    asset generation operations. Authentication is via bearer token.
-
-    '
+    asset generation operations. Authentication is via bearer token.'
   version: '2.0'
   contact:
     name: Meshy
@@ -38,6 +36,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/TaskCreated'
+      operationId: postOpenapiV2TextTo3d
+      x-operation-id-source: derived
     get:
       tags:
       - Text to 3D
@@ -62,6 +62,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Task'
+      operationId: getOpenapiV2TextTo3d
+      x-operation-id-source: derived
   /openapi/v2/text-to-3d/{id}:
     parameters:
     - in: path
@@ -80,6 +82,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Task'
+      operationId: getOpenapiV2TextTo3dById
+      x-operation-id-source: derived
     delete:
       tags:
       - Text to 3D
@@ -87,6 +91,8 @@ paths:
       responses:
         '200':
           description: Deleted
+      operationId: deleteOpenapiV2TextTo3dById
+      x-operation-id-source: derived
   /openapi/v2/text-to-3d/{id}/stream:
     parameters:
     - in: path
@@ -103,14 +109,10 @@ paths:
           description: Server-Sent Events stream
           content:
             text/event-stream: {}
+      operationId: getOpenapiV2TextTo3dByIdStream
+      x-operation-id-source: derived
 components:
   schemas:
-    TaskCreated:
-      type: object
-      properties:
-        result:
-          type: string
-          description: Task ID
     Task:
       type: object
       properties:
@@ -190,6 +192,12 @@ components:
             - stl
             - usdz
             - 3mf
+    TaskCreated:
+      type: object
+      properties:
+        result:
+          type: string
+          description: Task ID
   securitySchemes:
     bearerAuth:
       type: http

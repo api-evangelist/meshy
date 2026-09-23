@@ -5,9 +5,7 @@ info:
 
     provides Text-to-3D (v2 preview + refine workflow), Image-to-3D, and related
 
-    asset generation operations. Authentication is via bearer token.
-
-    '
+    asset generation operations. Authentication is via bearer token.'
   version: '2.0'
   contact:
     name: Meshy
@@ -38,6 +36,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/TaskCreated'
+      operationId: postOpenapiV1ImageTo3d
+      x-operation-id-source: derived
     get:
       tags:
       - Image to 3D
@@ -45,6 +45,8 @@ paths:
       responses:
         '200':
           description: List of tasks
+      operationId: getOpenapiV1ImageTo3d
+      x-operation-id-source: derived
   /openapi/v1/image-to-3d/{id}:
     parameters:
     - in: path
@@ -63,6 +65,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Task'
+      operationId: getOpenapiV1ImageTo3dById
+      x-operation-id-source: derived
     delete:
       tags:
       - Image to 3D
@@ -70,6 +74,8 @@ paths:
       responses:
         '200':
           description: Deleted
+      operationId: deleteOpenapiV1ImageTo3dById
+      x-operation-id-source: derived
   /openapi/v1/image-to-3d/{id}/stream:
     parameters:
     - in: path
@@ -86,14 +92,10 @@ paths:
           description: Server-Sent Events stream
           content:
             text/event-stream: {}
+      operationId: getOpenapiV1ImageTo3dByIdStream
+      x-operation-id-source: derived
 components:
   schemas:
-    TaskCreated:
-      type: object
-      properties:
-        result:
-          type: string
-          description: Task ID
     Task:
       type: object
       properties:
@@ -163,6 +165,12 @@ components:
           - a-pose
           - t-pose
           - ''
+    TaskCreated:
+      type: object
+      properties:
+        result:
+          type: string
+          description: Task ID
   securitySchemes:
     bearerAuth:
       type: http
