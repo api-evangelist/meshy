@@ -126,6 +126,12 @@ components:
           type: string
         consumed_credits:
           type: integer
+    TaskCreated:
+      type: object
+      properties:
+        result:
+          type: string
+          description: Task ID
     ImageTo3DRequest:
       type: object
       required:
@@ -165,12 +171,6 @@ components:
           - a-pose
           - t-pose
           - ''
-    TaskCreated:
-      type: object
-      properties:
-        result:
-          type: string
-          description: Task ID
   securitySchemes:
     bearerAuth:
       type: http

@@ -143,6 +143,12 @@ components:
           type: string
         consumed_credits:
           type: integer
+    TaskCreated:
+      type: object
+      properties:
+        result:
+          type: string
+          description: Task ID
     TextTo3DRequest:
       type: object
       required:
@@ -192,12 +198,6 @@ components:
             - stl
             - usdz
             - 3mf
-    TaskCreated:
-      type: object
-      properties:
-        result:
-          type: string
-          description: Task ID
   securitySchemes:
     bearerAuth:
       type: http
