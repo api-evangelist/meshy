@@ -96,6 +96,12 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    TaskCreated:
+      type: object
+      properties:
+        result:
+          type: string
+          description: Task ID
     Task:
       type: object
       properties:
@@ -126,12 +132,6 @@ components:
           type: string
         consumed_credits:
           type: integer
-    TaskCreated:
-      type: object
-      properties:
-        result:
-          type: string
-          description: Task ID
     ImageTo3DRequest:
       type: object
       required:
