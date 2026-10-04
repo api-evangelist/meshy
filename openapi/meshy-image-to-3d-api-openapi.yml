@@ -96,42 +96,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    TaskCreated:
-      type: object
-      properties:
-        result:
-          type: string
-          description: Task ID
-    Task:
-      type: object
-      properties:
-        id:
-          type: string
-        status:
-          type: string
-          enum:
-          - PENDING
-          - IN_PROGRESS
-          - SUCCEEDED
-          - FAILED
-          - CANCELED
-          - EXPIRED
-        progress:
-          type: integer
-        created_at:
-          type: integer
-        finished_at:
-          type: integer
-        model_urls:
-          type: object
-          additionalProperties:
-            type: string
-        thumbnail_url:
-          type: string
-        prompt:
-          type: string
-        consumed_credits:
-          type: integer
     ImageTo3DRequest:
       type: object
       required:
@@ -171,6 +135,42 @@ components:
           - a-pose
           - t-pose
           - ''
+    TaskCreated:
+      type: object
+      properties:
+        result:
+          type: string
+          description: Task ID
+    Task:
+      type: object
+      properties:
+        id:
+          type: string
+        status:
+          type: string
+          enum:
+          - PENDING
+          - IN_PROGRESS
+          - SUCCEEDED
+          - FAILED
+          - CANCELED
+          - EXPIRED
+        progress:
+          type: integer
+        created_at:
+          type: integer
+        finished_at:
+          type: integer
+        model_urls:
+          type: object
+          additionalProperties:
+            type: string
+        thumbnail_url:
+          type: string
+        prompt:
+          type: string
+        consumed_credits:
+          type: integer
   securitySchemes:
     bearerAuth:
       type: http
