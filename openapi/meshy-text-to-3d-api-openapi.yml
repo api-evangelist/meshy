@@ -113,12 +113,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    TaskCreated:
-      type: object
-      properties:
-        result:
-          type: string
-          description: Task ID
     TextTo3DRequest:
       type: object
       required:
@@ -168,6 +162,12 @@ components:
             - stl
             - usdz
             - 3mf
+    TaskCreated:
+      type: object
+      properties:
+        result:
+          type: string
+          description: Task ID
     Task:
       type: object
       properties:
