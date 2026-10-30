@@ -1,4 +1,4 @@
-# Meshy (meshy)
+# Meshy
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,61 +66,112 @@
 
 Meshy is an AI 3D model generation platform offering Text-to-3D, Image-to-3D, Multi Image-to-3D, Remesh, Rigging, Animation, Retexture, Text-to-Image, Image-to-Image, Multi-Color Print, Analyze Printability, and Repair Printability APIs. The Meshy REST API is at https://api.meshy.ai with bearer token authentication.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/meshy/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/meshy/refs/heads/main/apis.yml)
+**Areas:** Artificial Intelligence · 3D · Generation · Texturing · Animation · Rigging · Printing
 
-## Tags
+## Meshy on APIs.io
 
-- AI
-- 3D
-- Generation
-- Texturing
-- Animation
-- Rigging
-- Printing
+Everything profiled for Meshy is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/meshy/](https://apis.io/providers/meshy/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (3)
 
-- **Created:** 2026-05-08
-- **Modified:** 2026-05-08
+- [Meshy API](https://apis.io/apis/meshy/platform/) — REST API at https://api.meshy.ai for Text-to-3D (v2 with preview + refine workflow), Image-to-3D, Multi Image-to-3D, Remesh, Rigging, Animation, Retexture,…
+- [Meshy Image to 3D API](https://apis.io/apis/meshy/meshy-image-to-3d-api/) — The Image to 3D API from Meshy — 3 operation(s) for image to 3d.
+- [Meshy Text to 3D API](https://apis.io/apis/meshy/meshy-text-to-3d-api/) — The Text to 3D API from Meshy — 3 operation(s) for text to 3d.
 
-## APIs
+### Published properties
 
-### Meshy API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-REST API at https://api.meshy.ai for Text-to-3D (v2 with preview + refine workflow), Image-to-3D, Multi Image-to-3D, Remesh, Rigging, Animation, Retexture, Text-to-Image, Image-to-Image, Multi-Color Print, Analyze Printability, and Repair Printability. Auth via bearer token; consumed_credits returned per task. Documented at https://docs.meshy.ai/.
+#### Collections (2)
 
-- **Human URL:** [https://docs.meshy.ai/](https://docs.meshy.ai/)
-- **Base URL:** `https://api.meshy.ai/openapi/v2`
+Postman and Open Collection request collections.
 
-#### Tags
+- [Meshy Image to 3D API](https://apis.io/collections/meshy/open-meshy-image-to-3d-api/)
+- [Meshy Text to 3D API](https://apis.io/collections/meshy/open-meshy-text-to-3d-api/)
 
-- 3D Generation
-- Text-to-3D
-- Image-to-3D
-- Texturing
-- Animation
-- Rigging
-- 3D Printing
+#### Security (2)
 
-#### Properties
+Authentication, trust centre, and vulnerability disclosure.
 
-- [Documentation](https://docs.meshy.ai/)
-- [Sign Up](https://www.meshy.ai/settings/api)
-- [Pricing](https://www.meshy.ai/pricing)
+- [Meshy Domain Security](https://apis.io/security/meshy/meshy-domain-security/)
+- [Meshy Vulnerability Disclosure](https://apis.io/security/meshy/meshy-vulnerability-disclosure/)
 
-## Common Properties
+#### Plans and pricing (1)
 
-- [GitHub Organization](https://github.com/meshy-dev)
-- [LinkedIn](https://www.linkedin.com/company/meshyai)
+Published plans, tiers and prices.
+
+- [Meshy Plans Pricing](https://apis.io/plans/meshy/meshy-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Meshy Rate Limits](https://apis.io/rate-limits/meshy/meshy-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Meshy Finops](https://apis.io/finops/meshy/meshy-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
 - [Website](https://www.meshy.ai/)
 - [Documentation](https://docs.meshy.ai/)
-- [Plans](plans/meshy-plans-pricing.yml)
-- [Rate Limits](rate-limits/meshy-rate-limits.yml)
-- [Fin Ops](finops/meshy-finops.yml)
-- [Integrations](https://www.meshy.ai/integrations)
-- [L L Ms Txt](https://docs.meshy.ai/llms.txt)
+- [Blog](https://www.meshy.ai/blog)
+- [GitHub](https://github.com/meshy-dev)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 27.4** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 45.3 |
+| Contract governance | 0.0 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 11.9 |
+| Access clarity | 31.6 |
+
+**Agent readiness 16.1** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 10.9** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/meshy/](https://apis.io/providers/meshy/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Meshy: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/meshy/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
